@@ -8,7 +8,10 @@
     * Thyssen Nicholas (UFID: 19705329)
 
 **Contributions** (need to be update)
-- Part : Hung Hong  
+- **Hung Hong**
+  - Writing test input/output files
+  - Main loop, FIFO, LRU,
+
 - Part : Thyssen Nicholas  
 
 
