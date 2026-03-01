@@ -1,0 +1,10 @@
+# Programming Assignment 1 – 
+
+## Course
+COP 4533 – Algorithm Abstraction and Design 
+
+University of Florida
+
+## Authors
+- Hung Hong (UFID: 56253262)
+- Thyssen Nicholas (UFID: 19705329)
