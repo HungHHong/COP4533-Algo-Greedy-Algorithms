@@ -30,13 +30,18 @@ The implemented algorithms include:
 ## Project Structure (Need to be update)
 ```text
 .
-├── bin/                # Compiled executables
-├── data/               # Input data
-├── result/             # Output files
-├── src/                # Source code
-├── tests/              # Unit tests
-├── Makefile            # Build system
-└── README.md           # Documentation
+├── data/                 # Input request sequences
+│   └── testdata          
+├── src/                  # Source code
+│   ├── main.cpp
+│   ├── fifo.cpp          # FIFO
+│   ├── lru.cpp           # LRU
+│   ├── optff.cpp         # Optimal (Belady / farthest-in-future)
+│   └── common.cpp        # Shared utilities used by algorithms
+├── tests/                # Unit Test
+│   └── test_result 
+├── Makefile              # Build system
+└── README.md             # Documentation
 ```
 ---
 
