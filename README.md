@@ -1,4 +1,4 @@
-# Programming Assignment 1 – Greedy Algorithms
+# Programming Assignment 2 – Greedy Algorithms
 
 
 ## Course & Authors
@@ -33,15 +33,15 @@ The implemented algorithms include:
 ## Project Structure (Need to be update)
 ```text
 .
-├── data/                 # Input request sequences
-│   └── testdata          
+├── data/                 # Input request sequences + expected outputs
+│           
 ├── src/                  # Source code
 │   ├── main.cpp
 │   ├── fifo.cpp          # FIFO
 │   ├── lru.cpp           # LRU
 │   ├── optff.cpp         # Optimal (Belady / farthest-in-future)
 │   └── common.cpp        # Shared utilities used by algorithms
-├── tests/                # Unit Test
+├── tests/                # Run output
 │   └── test_result 
 ├── Makefile              # Build system
 └── README.md             # Documentation
