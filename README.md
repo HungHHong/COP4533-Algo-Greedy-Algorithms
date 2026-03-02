@@ -10,7 +10,7 @@
 **Contributions** (need to be update)
 - **Hung Hong**
   - Writing test input/output files
-  - Main loop, FIFO, LRU,
+  - Main loop, common, FIFO, LRU,
 
 - Part : Thyssen Nicholas  
 
@@ -33,35 +33,41 @@ The implemented algorithms include:
 ## Project Structure (Need to be update)
 ```text
 .
-├── data/                 # Input request sequences + expected outputs
-│           
-├── src/                  # Source code
+├── data/                    # Input request sequences + expected outputs
+│   ├── seq*.txt          
+│   ├── seq*_expected.txt
+├── src/                     # Source code
 │   ├── main.cpp
-│   ├── fifo.cpp          # FIFO
-│   ├── lru.cpp           # LRU
-│   ├── optff.cpp         # Optimal (Belady / farthest-in-future)
-│   └── common.cpp        # Shared utilities used by algorithms
-├── tests/                # Run output
+│   ├── fifo.cpp             # FIFO
+│   ├── lru.cpp              # LRU
+│   ├── optff.cpp            # Optimal (Belady / farthest-in-future)
+│   └── common.cpp           # Shared utilities used by algorithms
+├── tests/                   # Run output
 │   └── test_result 
-├── Makefile              # Build system
-└── README.md             # Documentation
+├── Makefile                 # Build system
+└── README.md                # Documentation
 ```
 ---
 
 ## Build & run Instructions (Need to be update)
-## 1. Build
+## Build
 To compile the cache simulation program:
 ```bash
 make
 ```
-## 2. Run the Program
-To run the cache simulator on an input request sequence:
+## Run seq1:
 ```bash
 make run
 ```
-This executes the program using an example input file located in the data/ directory and outputs the number of cache misses for: FIFO, LRU, OPTFF
+## Run another file:
+```bash
+make run FILE=data/seq3.txt
+```
+## Run all comparisons:
+```bash
+make test
+```
 
-The results are saved in the result/ directory.
 
 
 ----

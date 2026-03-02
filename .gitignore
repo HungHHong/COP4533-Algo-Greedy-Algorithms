@@ -1,0 +1,13 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executables
+cache_sim
+cache_sim.exe
+*.exe
+*.out
+
+# Build artifacts
+*.log
+
