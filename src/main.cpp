@@ -5,6 +5,8 @@
 #include <vector>
 #include <exception>
 
+
+
 // Function prototypes
 void read_input(std::istream& in, int& k, std::vector<int>& req);
 int simulate_fifo(int k, const std::vector<int>& req);
