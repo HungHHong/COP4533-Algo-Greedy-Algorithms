@@ -99,3 +99,10 @@ Observations:
 (Need to be update)
 
 ---
+
+## Cited Source
+I'm using online calculator to get "seq*_expected", so we can use to verify our algo output
+
+- [Algorithmroom](https://www.algorithmroom.com/calculator/page-replacement-algorithm)
+
+- [PagefaultCalculator](https://www.pagefaultcalculator.org/)

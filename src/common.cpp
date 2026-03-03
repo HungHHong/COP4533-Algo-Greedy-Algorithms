@@ -15,3 +15,5 @@ void read_input(std::istream& in, int& k, std::vector<int>& req) {
         req.push_back(x);
     }
 }
+
+
