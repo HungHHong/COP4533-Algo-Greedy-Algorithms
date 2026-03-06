@@ -63,7 +63,11 @@ make run
 ```bash
 make run FILE=data/seq3.txt
 ```
-## Run all comparisons:
+## Test one comparison:
+```bash
+make test-one FILE=data/seq3.txt
+```
+## Test all comparisons:
 ```bash
 make test
 ```

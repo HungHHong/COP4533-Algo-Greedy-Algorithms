@@ -46,6 +46,7 @@ test: $(TARGET)
 	@mkdir -p $(OUTDIR)
 	@set -e; \
 	for in_file in data/seq*.txt; do \
+	  case "$$in_file" in *_expected.txt) continue ;; esac; \
 	  exp_file=$${in_file%.txt}_expected.txt; \
 	  if [ ! -f "$$exp_file" ]; then \
 	    echo "Missing expected file: $$exp_file"; \
