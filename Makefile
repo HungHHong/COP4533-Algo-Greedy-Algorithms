@@ -11,7 +11,7 @@ OBJ := $(SRC:.cpp=.o)
 FILE ?= data/seq1.txt
 
 # Used by tests
-OUTDIR := out
+OUTDIR := tests
 
 .PHONY: all run test test-one clean
 
