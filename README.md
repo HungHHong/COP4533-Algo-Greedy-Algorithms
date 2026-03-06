@@ -87,6 +87,7 @@ make test
 | seq2.txt | 4 | 56 | 56 | 56 | 35 |
 | seq3.txt | 3 | 60 | 6 | 6 | 6 |
 | seq4.txt | 3 | 60 | 45 | 50 | 31 |
+| seq5.text| 5 | 54 | 40 | 40 | 26
 
 **Briefly comment:**
 
