@@ -71,32 +71,88 @@ make test
 
 
 ----
-# Theoretical Questions (Need to be update)
+# Theoretical Questions
 
-**Question 1 – Empirical Comparison**
+## Question 1 – Empirical Comparison
 
-We compare the number of cache misses produced by FIFO, LRU, and OPTFF across several request sequences.
+**Use at least three nontrivial input files (each containing 50 or more requests). For each file, report the number of cache misses for each policy.**
 
-Observations:
-(Need to be update)
+| Input File  | k | m | FIFO | LRU | OPTFF |
+| --- | --- | --- | --- | --- | --- |
+| seq1.txt | 3 | 50 | 50 | 50 | 27 |
+| seq2.txt | 4 | 56 | 56 | 56 | 35 |
+| seq3.txt | 3 | 60 | 6 | 6 | 6 |
+| seq4.txt | 3 | 60 | 45 | 50 | 31 |
+
+**Briefly comment:**
+
+**Does OPTFF have the fewest misses?**
+
+OPTFF Does seem to have the fewest misses overall but can still have the same amount as the other 2 as seen by seq3.txt. 
+
+**How does FIFO compare to LRU?**
+
+When comparing FIFO and LRU it seems to be that they are about equal in number of misses. Only in the third input case does FIFO have fewer misses than LRU. This shows that both are about the same but it does  depend on the input you are given.
 
 ---
 
-**Question 2: Bad Sequence for LRU or FIFO**
+## Question 2: Bad Sequence for LRU or FIFO
 
-For k = 3 cache slots, we examine whether there exists a request sequence where OPTFF has strictly fewer misses than both LRU and FIFO.
+**For ( k = 3 ), investigate whether there exists a request sequence for which OPTFF incurs strictly fewer misses than LRU (or FIFO). If such a sequence exists, consturct it and report the miss counts for both policies. If you believe no such sequence exists for the policy you chose provide a clear justification. In either case, briefly explain your reasoning.**
 
-Observations:
-(Need to be update)
+Such a sequence definitely exists as we can see from the question 1 table. The sequence used for that row was a continuously repeating sequence that counts to 5, 10 different times as can be seen below:
+
+1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 
+
+**FIFO**
+
+For FIFO, first three requests fill the cache
+
+(1,2,3) -> 3 cache misses
+
+For the next couple of requests we can see the following
+
+4 arrives -> remove 1 -> (2,3,4) -> 4 cache misses
+
+5 arrives -> remove 2 -> (3,4,5) -> 5 cache misses
+
+1 arrives -> remove 3 -> (4,5,1) -> 6 cache misses
+
+2 arrives -> remove 4 -> (5,1,2) -> 7 cache misses
+
+3 arrives -> remove 5 -> (1,2,3) -> 8 cache misses
+
+Now that we have (1,2,3) and now the cycle repeats, we can see that every single request would give us a cache miss. Therefore, we have 50 cache misses and 0 hits.
+
+**LRU**
+
+LRU behaves similarly to FIFO. Because each page is not requested again until four have appeared, the least recently used page is the one needed next. This means LRU produces 50 misses and 0 hits.
+
+**OPTFF**
+
+Since we look ahead with OPTFF we do not get 50. 
+
+(1,2,3) -> 3 cache misses
+
+4 arrives -> remove 3 -> (1,2,4) -> 4 cache misses
+
+5 arrives -> remove 4 -> (1,2,5) -> 5 cache misses
+
+After this point, the algorithm starts to use page numbers we have in cache. This creates a repeating pattern of having 2 cache hits and 2 cache misses, which gives us a total of 27 cache misses and 23 hits, which is fewer than both FIFO and LRU.
 
 ---
 
-**Question 3: Prove OPTFF is Optimal**
+## Question 3: Prove OPTFF is Optimal
 
-We provide a proof that OPTFF (Belady’s algorithm) produces the minimum possible number of cache misses among all offline algorithms.
+**Let OPTFF be Belady’s Farthest-in-Future algorithm. Let ( A ) be any offline algorithm that knows the full request sequence. Prove that the number of misses of OPTFF is no larger than that of ( A ) on any fixed sequence.**
 
-Observations:
-(Need to be update)
+Let r be the first request where A and OPTFFmake differing decisions on what to remove from our cache. Up until now we know that the caches are identical.
+
+Let’s assume that OPTFF wants to remove page R and A wants to remove page L from the cache. OPTFF will choose R due to the fact no other page number in the cache can be seen later (or not at all). So, we know that the next time R appears is greater than the next time L appears. 
+
+If in Algorithm A we chose to remove R instead of L, we would not see an increase in cache misses due to the fact that L would be seen again before R.  
+
+We can repeat this process many times and see that for each time we swap the values, the new A will not have any new cache misses arise from switching. This means that OPTFF must be optimal because the # of OPTFF misses $\le$ # of A Misses. 
 
 ---
 
